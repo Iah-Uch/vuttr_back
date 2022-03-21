@@ -15,13 +15,13 @@
 
 ### Technologies Used:
 
-- NodeJs => API Functions and data handling;
-- Express => Routing and Request handling;
-- MongoDB => Database;
-- Docker => Containerization;
-- Mongoose => Database queries, modeling and data validation;
-- Joi => Data and fields validation;
-- Morgan => Treating and logging of server calls on the console;
-- Es Lint => Code patterns and syntax checking;
-- Prettier => Code patterns and syntax checking;
-- Husky => Code hygiene enforcing on commits; 
+- **NodeJs** => API Functions and data handling;
+- **Express** => Routing and Request handling;
+- **MongoDB** => Database;
+- **Docker** => Containerization;
+- **Mongoose** => Database queries, modeling and data validation;
+- **Joi** => Data and fields validation;
+- **Morgan** => Treating and logging of server calls on the console;
+- **Es Lint** => Code patterns and syntax checking;
+- **Prettier** => Code patterns and syntax checking;
+- **Husky** => Code hygiene enforcing on commits; 
