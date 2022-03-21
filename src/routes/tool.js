@@ -11,8 +11,8 @@ router.get('/', async (_req, res) => {
   const tools = await Tool.find()
 
   return res.status(200).json({
-    success: true,
     data: tools,
+    success: true,
     message: 'Successfully retrieved!',
   })
 })
@@ -24,8 +24,8 @@ router.post('/add', async (req, res) => {
 
   if (error) {
     return res.status(400).json({
-      success: false,
       data: [],
+      success: false,
       message: error?.details[0]?.message,
     })
   }
@@ -47,9 +47,9 @@ router.post('/add', async (req, res) => {
 })
 
 // Returns the data of a single tool by id.
-router.get('/id/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     // Checking if the provided id is valid.
-  if (!Mongoose.Types.ObjectId.isValid(req.params.id))
+  if (!Mongoose.Types.ObjectId.isValid(req.query.id))
     return res.status(400).json({
       data: [],
       success: false,
@@ -57,7 +57,7 @@ router.get('/id/:id', async (req, res) => {
     })
 
   // Querying id In mongodb with mongoose.
-  const tool = await Tool.findById(req.params.id)
+  const tool = await Tool.findById(req.query.id)
 
   // Checking if the requested tool is in the database.
   if (!tool)
@@ -78,22 +78,22 @@ router.get('/id/:id', async (req, res) => {
 })
 
 // Updates an existing tool by id.
-router.put('/put/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   // Validates the arriving request.
   const { error } = validateTool(req.body)
 
   if (error) {
     return res.status(400).json({
-      success: false,
       data: [],
+      success: false,
       message: error?.details[0]?.message,
     })
   }
 
   // Finds the corresponding tool and updates it with mongoose.
   const tool = await Tool.findByIdAndUpdate(
-    req.params.id,
-    { title: req.body.title,
+    req.query.id,
+    {title: req.body.title,
     description: req.body.description,
     link: req.body.link,
     tags: req.body.tags },
@@ -110,16 +110,16 @@ router.put('/put/:id', async (req, res) => {
     })
 
   return res.status(200).json({
-    success: true,
     data: tool,
-    message: 'Successfully Updated!',
+    success: true,
+    message: 'Successfully Updated!'
   })
 })
 
 // Deletes a tool by id.
-router.delete('/delete/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   // Finds the corresponding tool and deletes it with mongoose and MongoDB.
-  const deletedTool = await Tool.findByIdAndRemove(req.params.id)
+  const deletedTool = await Tool.findByIdAndRemove(req.query.id)
 
   // If the process is successful, returns the deleted tool. Else, returns the error.
   if (!deletedTool)
@@ -136,7 +136,7 @@ router.delete('/delete/:id', async (req, res) => {
 })
 
 // Returns the data of a single tool by id.
-router.get('/tag/:tags', async (req, res) => {
+router.get('/tags/:tags', async (req, res) => {
     // Querying tags In mongodb with mongoose.
 
     Tool.find({tags: req.params.tags}).then(tools => {
