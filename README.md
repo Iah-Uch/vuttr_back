@@ -1,6 +1,6 @@
 # Very Useful Tools To Remember - API.
 
-Short project made for an interview.
+Short project made for an interview. An API to register tools and their information so the user can access them later.
 
 ## How to Run the Project:
 - Clone the repository;
