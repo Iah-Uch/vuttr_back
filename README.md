@@ -1,5 +1,7 @@
 # Very Useful Tools To Remember - API.
 
+Short project made for an interview.
+
 ## How to Run the Project:
 - Clone the repository;
 - Open a terminal in the directory;
@@ -11,7 +13,6 @@
 	- Run ```yarn start```;
 - Use Postman, Insomnia or any other request tool to call the API on http://localhost:3000.
 
-## [OpenAPI Documentation](https://app.swaggerhub.com/apis-docs/Iah-Uch/VUTTR/1.0.1#/)
 
 ### Technologies Used:
 
